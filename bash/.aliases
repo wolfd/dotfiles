@@ -1,0 +1,45 @@
+# Basic shortcuts
+alias gs="git status"
+alias gc="git checkout"
+alias gd="git diff --color"
+
+# Lists commits between local branch and origin/master
+# Note: this will be tricked by merge commits
+alias gl='git log origin/master... --oneline --no-merges'
+
+# add changes and commit
+alias gap="git add -p; git commit"
+alias gapa="git add -p; git commit --amend --no-edit"
+
+# show me all my branches, locally and remote
+alias mygit="git for-each-ref --format='%(authoremail) %09 %(refname)' --sort=committerdate | grep `git config --get user.email`"
+alias whogit="git for-each-ref --format='%(authoremail) %09 %(refname)' --sort=committerdate"
+
+# show me recent branches
+alias grecent="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+
+# blame a file but get stats on how many lines per author
+whodidthis() {
+    git blame $1 --line-porcelain HEAD |grep  "^author "|sort|uniq -c|sort -nr
+}
+
+# Opens gitk in the background so it doesnt consume the terminal
+alias gk="gitk --all > /dev/null 2>&1&"
+
+# tried and true
+alias serve="python -m SimpleHTTPServer"
+
+# some more ls aliases
+alias ll="ls -alF"
+alias la="ls -A"
+alias l="ls -CF"
+# choo choo blocker
+alias sl="ls"
+
+# open what's hopefully a fs viewer
+alias here="xdg-open ."
+
+# convert a dot to png, show it, delete it
+show_dot() {
+    dot -Tpng $1 > /tmp/a-temp-dot.png && xdg-open /tmp/a-temp-dot.png; rm /tmp/a-temp-dot.png
+}

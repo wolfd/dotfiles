@@ -44,3 +44,6 @@ alias here="xdg-open ."
 show_dot() {
     dot -Tpng $1 > /tmp/a-temp-dot.png && xdg-open /tmp/a-temp-dot.png; rm /tmp/a-temp-dot.png
 }
+
+# net things
+alias netlist="sudo netstat -pnutl"  # I can put sudo in my alias if I really want to, ok?

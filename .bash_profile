@@ -1,4 +1,4 @@
 for DOTFILE in $(find ~/dotfiles/bash)
 do
-  [ -f “$DOTFILE” ] && source “$DOTFILE”
+  [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
